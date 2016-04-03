@@ -1,16 +1,21 @@
 {% extends 'base.html' %}
 {% block titulo %}{{ object.nome }}{% endblock %}
 {% block conteudo %}
-        <p>
-            Nome: {{ object.nome }}
-        </p>
-        <p>
-            Descrição: {{ object.descricao }}
-        </p>
-        <p>
-            Data de Criação: {{ object.data_criacao|date:"SHORT_DATE_FORNAT" }}
-        </p>
-        <p>
-            Status: {% if object.executado %}Executado{% else %}Pendente{% endif %}
-        </p>
+    <div class="page-header">
+        <h2>Detalhes da Tarefa</h2>
+    </div>
+    <dl class="dl-horizontal">
+        <dt>Nome:</dt>
+        <dd>{{ object.nome }}</dd>
+        <dt>Data de Criação:</dt>
+        <dd>{{ object.data_criacao|date:"d/m/Y"}} </dd>
+        <dt>Descirção:</dt>
+        <dd>{{ object.descricao }}</dd>
+        <dt>Status:</dt>
+        <dd>{% if object.status %}Finalizado{% else %}Aberto{% endif %} </dd>
+        {% if object.data_execucao %}
+            <dt>Datade Execução:</dt>
+            <dd>{{ object.data_execucao }}</dd>
+        {% endif %}
+    </dl>
 {% endblock %}

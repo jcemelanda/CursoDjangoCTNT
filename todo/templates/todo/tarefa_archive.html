@@ -1,9 +1,25 @@
 {% extends 'base.html' %}
 {% block conteudo %}
-    <ul>
-        {% for tarefa in latest %}
-            <li>
-                <a href="{{ tarefa.pk }}/">{{ tarefa.nome }} - {{ tarefa.data_criacao }}</a></li>
+<div class="page-header">
+    <h2>Minhas Tarefas</h2>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data de criação</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in latest %}
+            <tr>
+                <td><a href="{{ item.pk }}/">{{ item.nome }}</a></td>
+                <td>{{ item.data_criacao|date:"d/m/Y" }}</td>
+                <td>{% if item.status %}Finalizado{% else %}Aberto{% endif %}
+                </td>
+            </tr>
         {% endfor %}
-    </ul>
+    </tbody>
+</table>
 {% endblock %}
