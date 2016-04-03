@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% block conteudo %}
+<div class="page-header">
+    <h2>Criação de Usuário</h2>
+</div>
+<form method="POST" action=".">
+    {% csrf_token %}
+    {{ form|bootstrap }}
+    <div class="form-group">
+        <input class="btn btn-primary" type=submit value="Criar">
+    </div>
+</form>
+{% endblock %}

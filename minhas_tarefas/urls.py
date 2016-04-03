@@ -16,10 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.conf.urls import include
 from django.contrib import admin
+from django.contrib.auth.decorators import login_required
 from todo.views import Home
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^todo/', include('todo.urls')),
+    url(r'^todo/', login_required(include('todo.urls'))),
     url(r'^$', Home.as_view()),
 ]

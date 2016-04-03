@@ -1,8 +1,10 @@
 from datetime import datetime
 
+from django.contrib.auth.models import User
 from django.db.models import BooleanField
 from django.db.models import CharField
 from django.db.models import DateField
+from django.db.models import ForeignKey
 from django.db.models import Model
 from django.db.models import TextField
 from django.db.models.signals import pre_save
@@ -18,6 +20,7 @@ class Tarefa(Model):
     data_criacao = DateField(auto_now_add=True, verbose_name='data de criação')
     data_execucao = DateField(null=True, blank=True, verbose_name='data de execução')
     executado = BooleanField(default=False)
+    usuario = ForeignKey(User, verbose_name="usuário")
 
     class Meta:
         ordering = ['-data_criacao', 'executado']

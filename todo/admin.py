@@ -6,7 +6,8 @@ from todo.models import Tarefa
 
 class TarefaAdmin(ModelAdmin):
     list_display = ['nome', 'data_criacao', 'data_execucao', 'executado']
-    fields = ['nome', 'descricao', 'executado']
+    fields = ['nome', 'descricao', 'executado', 'usuario']
+    readonly_fields = ['usuario']
     list_editable = ['executado']
 
 admin.site.register(Tarefa, TarefaAdmin)
