@@ -3,7 +3,13 @@
 <div class="page-header">
     <h2>Olá {{ user.first_name }}</h2>
 </div>
-Você tem {{ counter }} {% if counter > 1 %}tarefas abertas{% else %}tarefa
-aberta{% endif %}</br>
-<a href="todo/tarefas/">Minhas Tarefas</a>
+{% if user.is_authenticated %}
+    Você tem {{ counter }} {% if counter > 1 %}tarefas abertas{% else %}tarefa
+    aberta{% endif %}<br/>
+    <a href="/tarefas/">Minhas Tarefas</a>
+{% else %}
+    <a href="/admin/login/?next=/">Login</a>
+    ||
+    <a href="/criar_usuario/">Criar usuário</a>
+{% endif %}
 {% endblock %}
