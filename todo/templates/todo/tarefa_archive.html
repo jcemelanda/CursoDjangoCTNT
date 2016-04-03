@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <ul>
+        {% for tarefa in latest %}
+            <li>
+                <a href="{{ tarefa.pk }}/">{{ tarefa.nome }} - {{ tarefa.data_criacao }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

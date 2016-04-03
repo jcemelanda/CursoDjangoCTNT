@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block titulo %}{{ object.nome }}{% endblock %}
+{% block conteudo %}
+        <p>
+            Nome: {{ object.nome }}
+        </p>
+        <p>
+            Descrição: {{ object.descricao }}
+        </p>
+        <p>
+            Data de Criação: {{ object.data_criacao|date:"SHORT_DATE_FORNAT" }}
+        </p>
+        <p>
+            Status: {% if object.executado %}Executado{% else %}Pendente{% endif %}
+        </p>
+{% endblock %}
