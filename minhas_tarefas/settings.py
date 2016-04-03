@@ -79,7 +79,7 @@ from os import getenv
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': getenv('PGDATABASE'),
         'USER': getenv('OPENSHIFT_POSTGRESQL_DB_USERNAME'),
         'PASSWORD': getenv('OPENSHIFT_POSTGRESQL_DB_PASSWORD'),
