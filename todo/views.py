@@ -22,6 +22,6 @@ class Home(View):
         self.context = {}
 
     def get(self, request, *args, **kwargs):
-        self.context['counter'] = Tarefa.objects.filter(executado=True).count()
+        self.context['counter'] = Tarefa.objects.filter(executado=False).count()
         return render_to_response(self.template_name, self.context,
                                   RequestContext(request))

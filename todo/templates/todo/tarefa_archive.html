@@ -16,7 +16,7 @@
             <tr>
                 <td><a href="{{ item.pk }}/">{{ item.nome }}</a></td>
                 <td>{{ item.data_criacao|date:"d/m/Y" }}</td>
-                <td>{% if item.status %}Finalizado{% else %}Aberto{% endif %}
+                <td>{% if item.executado %}Finalizado{% else %}Aberto{% endif %}
                 </td>
             </tr>
         {% endfor %}

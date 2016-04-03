@@ -3,7 +3,7 @@
 <div class="page-header">
     <h2>Olá {{ user.first_name }}</h2>
 </div>
-Você tem {{ counter }} {% if count > 1 %}tarefas abertas{% else %}tarefa
+Você tem {{ counter }} {% if counter > 1 %}tarefas abertas{% else %}tarefa
 aberta{% endif %}</br>
 <a href="todo/tarefas/">Minhas Tarefas</a>
 {% endblock %}
